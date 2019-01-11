@@ -8,8 +8,7 @@ public class MainApp {
     }
 
 class Printer {
-    public String printString(String my_str) {
+    public void printString(String my_str) {
         System.out.println(my_str);
-        return null;
     }
 }

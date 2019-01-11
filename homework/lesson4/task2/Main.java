@@ -7,9 +7,12 @@ public class Main {
     private static Candidate[] candidates;
 
     public static void main(String[] args) {
-        Candidate my_Candidate_1 = new Candidate(32, "российское", "высшее", 2, 80, 180, 45);
-        Candidate my_Candidate_2 = new Candidate(35, "российское", "высшее", 6, 75, 170, 42);
-        Candidate my_Candidate_3 = new Candidate(33, "российское", "высшее", 4, 91, 183, 44);
+        Candidate my_Candidate_1 = new Candidate("российское", "высшее", "да",
+                33, 4, 75, 180, 43, 80, 38);
+        Candidate my_Candidate_2 = new Candidate("российское", "высшее", "да",
+                35, 2, 80, 175, 44, 90,41);
+        Candidate my_Candidate_3 = new Candidate("российское", "высшее", "нет",
+                30, 3, 78,177, 42, 85,40);
         validation(my_Candidate_1);
         validation(my_Candidate_2);
         validation(my_Candidate_3);
@@ -18,60 +21,30 @@ public class Main {
 
     private static void validation(Candidate...candidates) {
         for(Candidate i: candidates) {
-            boolean msg;
-            if (i.age <= 35) {
+            boolean msg=false;
+            if ((i.age <= 35)
+                    && "российское".equals(i.citizenship)
+                    && "высшее".equals(i.education)
+                    && "да".equals(i.knowledgeOfEnglish)
+                    && (i.experience >= 3)
+
+            ){
                 msg = true;
-            } else {
-                msg = false;
-                out.println(msg);
-                break;
             }
-            if (i.citizenship.equals("российское")) {
+            if(( msg == true
+                    && i.growth >= 50) & (i.growth <= 90)
+                    && (i.height >= 150) & (i.height <= 190)
+                    && (i.hootSize <= 46)
+                    && (i.sitHeight>=80) & (i.sitHeight <=99 )
+                    && i.volumBreast<41){
                 msg = true;
-            } else {
-                msg = false;
-                out.println(msg);
-                break;
             }
-            if (i.education.equals("высшее")) {
-                msg = true;
-            } else {
-                msg = false;
-                out.println(msg);
-                break;
+               out.println(msg);
             }
-            if (i.experience >= 3) {
-                msg = true;
-            } else {
-                msg = false;
-                out.println(msg);
-                break;
-            }
-            if (i.growth >= 50 & i.growth <= 90) {
-                msg = true;
-            } else {
-                msg = false;
-                out.println(msg);
-                break;
-            }
-            if (i.height >= 150 & i.height <= 190) {
-                msg = true;
-            } else {
-                msg = false;
-                out.println(msg);
-                break;
-            }
-            if (i.hootSize <= 46) {
-                msg = true;
-                out.println(msg);
-            } else {
-                msg = false;
-                out.println(msg);
-            }
+
 
         }
     }
 
 
-}
 
