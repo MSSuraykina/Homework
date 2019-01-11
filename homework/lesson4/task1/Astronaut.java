@@ -3,13 +3,6 @@ package homework.lesson4.task1;
 import java.util.Arrays;
 
 public class Astronaut {
-    int height;
-    int volumHead;
-    int volumBreast;
-    int volumeWaist;
-    int volumHip;
-    int hootSize;
-    int growth;
     public Astronaut(int growth, int height, int volumHead, int volumBreast, int volumeWaist, int volumHip, int hootSize) {
         this.growth = growth;
         this.height = height;
@@ -19,6 +12,9 @@ public class Astronaut {
         this.volumHip = volumHip;
         this.hootSize = hootSize;
     }
+
+    int growth;
+
     @Override
     public String toString() {
         return ":" +
@@ -31,5 +27,10 @@ public class Astronaut {
                 ", размер ноги=" + hootSize ;
     }
 
-
+    int height;
+    int volumHead;
+    int volumBreast;
+    int volumeWaist;
+    int volumHip;
+    int hootSize;
 }
