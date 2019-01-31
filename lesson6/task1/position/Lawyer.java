@@ -1,8 +1,8 @@
 package homework.lesson6.task1.position;
 
-import homework.lesson6.task1.Employees;
+import homework.lesson6.task1.Employee;
 
-public class Lawyer extends Employees {
+public class Lawyer extends Employee {
     public Lawyer(Object position, String name, String surname) {
         super(position, name, surname);
     }

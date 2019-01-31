@@ -10,7 +10,6 @@ public class Trucks extends GroundTransportation{
 
     private double capacity; // грузоподьемность
 
-
     public void loadCargo(Object cargo){
 
     }

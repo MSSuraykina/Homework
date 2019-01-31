@@ -5,7 +5,7 @@ public class LaunchVehicles extends SpaceTransport{
     private  String type; // пилотируемые или грузовые
 
     public LaunchVehicles(String goStr) {
-        super(goStr);
+        super();
     }
 
     public void stageSeparation(){

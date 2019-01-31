@@ -5,7 +5,7 @@ public class Helicopters extends  Aircraft{
     private String screwLayout; // Схема расположения винтов
 
     public Helicopters(String goStr) {
-        super(goStr);
+         super(goStr);
     }
 
     @Override

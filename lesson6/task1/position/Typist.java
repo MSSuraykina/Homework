@@ -1,13 +1,13 @@
 package homework.lesson6.task1.position;
 
-import homework.lesson6.task1.Employees;
+import homework.lesson6.task1.Employee;
 
-public class Typist extends Employees {
+public class Typist extends Employee {
     public Typist(Object position, String name, String surname) {
         super(position, name, surname);
     }
 
-    public String typing (String text){
+    public String typing(String text) {
         return text;
     }
 }

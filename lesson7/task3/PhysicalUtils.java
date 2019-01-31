@@ -92,7 +92,7 @@ public class PhysicalUtils {
         };
         String [][] matrixStrB;
         matrixStrB = transportMatrix(matrixStr);
-        
+
         System.out.println("До " +Arrays.deepToString(matrix));
         System.out.println("После " +Arrays.deepToString(matrixB));
         System.out.println("До " +Arrays.deepToString(matrixStr));

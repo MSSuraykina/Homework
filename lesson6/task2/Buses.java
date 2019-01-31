@@ -3,7 +3,6 @@ package homework.lesson6.task2;
 public class Buses extends GroundTransportation {
     public Buses(String goStr) {
         super(goStr);
-        this.numberOfSeat = numberOfSeat;
     }
 
     private int numberOfSeat;

@@ -4,15 +4,17 @@ public class Spacecraft extends SpaceTransport{
     private  String type; // пилотируемые или грузовые
 
     public Spacecraft(String goStr) {
-        super(goStr);
+        super();
     }
 
     public boolean docking(){
         return true;
     }
+
     public boolean undocking(){
         return true;
     }
+
     public void orbitAdjustment(){
     }
 
