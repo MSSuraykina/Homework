@@ -3,11 +3,11 @@ package homework.lesson8.task4;
 import homework.lesson8.task1.My_Sputnik;
 
 import java.util.LinkedList;
-import java.util.List;
+
 
 public class ID_Sputnik extends My_Sputnik {
     public static void main(String[] args) {
-        List<String> ids = new LinkedList<>();
+        LinkedList<String> ids = new LinkedList<>();
         ids.add(cosmos_864.getId());
         ids.add(cosmos_970_deb.getId());
         ids.add(cosmos_1249_coolant.getId());
@@ -20,9 +20,9 @@ public class ID_Sputnik extends My_Sputnik {
         ids.add(ops_4684_deb.getId());
 
         System.out.println(ids);// для наглядности
-        System.out.println(((LinkedList<String>) ids).getFirst());
-        System.out.println(((LinkedList<String>) ids).getLast());
-        ((LinkedList<String>) ids).removeLast();
+        System.out.println(ids.getFirst());
+        System.out.println(ids.getLast());
+        ids.removeLast();
         System.out.println(ids);
 
     }
