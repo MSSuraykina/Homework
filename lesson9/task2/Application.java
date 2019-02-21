@@ -27,14 +27,14 @@ public class Application {
         sortedByColor(dogs);
     }
 
-    public static TreeSet<Dog> sortedByColor(List<Dog> dogs) {
+    public static Collection<Dog> sortedByColor(List<Dog> dogs) {
         Set<Dog> dogSet = new TreeSet<>();
         dogSet.addAll(dogs);
 
         for (Dog dog : dogSet) {
             System.out.println(dog);
         }
-        return (TreeSet<Dog>) dogSet;
+        return dogSet;
     }
 
 }
