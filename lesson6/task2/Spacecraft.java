@@ -3,8 +3,9 @@ package homework.lesson6.task2;
 public class Spacecraft extends SpaceTransport{
     private  String type; // пилотируемые или грузовые
 
-    public Spacecraft(String goStr) {
+    public Spacecraft(String goStr, String name) {
         super();
+        setName(name);
     }
 
     public boolean docking(){
@@ -20,7 +21,6 @@ public class Spacecraft extends SpaceTransport{
 
     @Override
     public String toString() {
-        return "КА - 'Союз - МС' \n"
-                + "КА - ' Прогресс МС'";
+        return "КА - 'Союз - МС'" + getName() +" '";
     }
 }

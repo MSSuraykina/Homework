@@ -18,6 +18,8 @@ public class Main {
         test(new Integer(1), new Long(1));//вывод равен 2 т.к. ключи равны и по значению но не по типу и создается два значения map;
         test(new Integer(1), new String("1"));//вывод равен 2 т.к. ключи равны и по значению но не по типу и создается два значения map;
         test(new A(1), new A(1));//вывод равен 2 т.к. создается два разных обьекта с одним значением;
+        testInt(1, 1); // число входит в прописанный кеш и у обоих обьектов будет один hashcode
+        testInt(10000, 10000);
     }
     private static void test(Object o1, Object o2){//метод заполнение map таблицы
         try {//попробуй положить переданные обьекты в роли ключей, а строковое значение значением
@@ -29,6 +31,12 @@ public class Main {
         }finally {//в заключении
             map.clear();//очисти map таблицу
         }
+    }
+    private static void testInt(Integer i, Integer i2) {
+        System.out.println(i);
+        if (i == i2) System.out.println(" the same");
+        if (i != i2) System.out.println(" different");
+        if (i.equals(i2)) System.out.println(" equal");
     }
 
     static class A{//создание класса A

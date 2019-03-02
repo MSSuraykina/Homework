@@ -2,26 +2,25 @@ package homework.lesson6.task1;
 
 import java.util.Objects;
 
-public class Employee {
+public abstract class Employee {
     private Object position;
     private String name;
     private String surname;
     private String gender;
     private int age;
 
-    public Employee(Object position, String name, String surname) {
-        this.position = position;
+    public Employee( String name, String surname) {
         this.name = name;
         this.surname = surname;
     }
 
-    public Object getPosition() {
-        return position;
-    }
+    void goThroughTheGate(){}// пройти через проходную
 
-    public void setPosition(Object position) {
-        this.position = position;
-    }
+    void showPass(Object pass){}// предъявить пропуск
+
+    void getSalary (){} //получить з/п
+
+    void goToTheHospital(){} // уйти на больничный
 
     public String getName() {
         return name;

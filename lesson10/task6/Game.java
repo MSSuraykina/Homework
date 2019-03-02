@@ -5,9 +5,17 @@ import java.util.*;
 public class Game implements IGame {
 
     private static boolean isActive = true;
-    private static Command cmd;
     private Scanner sc = new Scanner(System.in);
-    //private Collection<? extends Ogre> ogres;
+    private static Command cmd;
+
+
+
+    public static Command getCmd() {
+        return cmd;
+    }
+    public static void setCmd(Command cmd) {
+        Game.cmd = cmd;
+    }
 
     public void setIsActive(boolean isActive) {
         Game.isActive = isActive;
@@ -17,36 +25,38 @@ public class Game implements IGame {
         return isActive;
     }
 
+
+
     public static void main(String[] args) throws Exception {
         Game game = new Game();
         game.start();
     }
 
     @Override
-    public void start() throws Exception {
+    public void start() throws InterruptedException {
         GameContext ctx = new GameContext();
         ctx.setGame(this);
         ctx.setCmd(Command.GO);
-        Dwarf dwarf = new Dwarf();
+        GameObject dwarf = new Dwarf(0,0);
         dwarf.init(0, 0, ctx);
-        Set<Ogre> ogres = new HashSet<>(10);
-        ogres.add(new Ogre());
-        ogres.add(new Ogre());
-        ogres.add(new Ogre());
-        ogres.add(new Ogre());
-        ogres.add(new Ogre());
-        ogres.add(new Ogre());
-        ogres.add(new Ogre());
-        ogres.add(new Ogre());
-        ogres.add(new Ogre());
-        ogres.add(new Ogre());
+        List<GameObject> ogres = new ArrayList<>(10);
+        ogres.add(new Ogre(0,0));
+        ogres.add(new Ogre(0,0));
+        ogres.add(new Ogre(0,0));
+        ogres.add(new Ogre(0,0));
+        ogres.add(new Ogre(0,0));
+        ogres.add(new Ogre(0,0));
+        ogres.add(new Ogre(0,0));
+        ogres.add(new Ogre(0,0));
+        ogres.add(new Ogre(0,0));
+        ogres.add(new Ogre(0,0));
 
-        for (Ogre ogre:ogres){
+        for (GameObject ogre:ogres){
             ogre.init(5, 0, ctx);
         }
         while (isActive) {
             dwarf.update(ctx);
-            ctx.setCmd(getNextCmd(dwarf,ogres));
+            ctx.setCmd(getNextCmd(dwarf, ogres));
             Thread.sleep(500);
         }
 
@@ -58,76 +68,60 @@ public class Game implements IGame {
         setIsActive(false);
     }
 
-    public Command getNextCmd(Dwarf dwarf, Set<Ogre> ogres) {
+    public Command getNextCmd(GameObject dwarf, List<GameObject> ogres) {
         System.out.println("Enter Command: ");
-        String rawCmd = sc.next();
+        String rawCmd = sc.next().toUpperCase();
         System.out.println();
-        if (!isIsActive() == false) switch (rawCmd) {
-            case "go":
-                System.out.println("Гном прошел на 1 шаг вправо");
-                dwarf.setX(dwarf.getX() + 1);
-                System.out.println(dwarf);
-                if (dwarf.getX() == 5) {
-                    System.out.println("Вы подошли к каменным воротам Мории. \n" +
-                            "Нужно ввести пароль. Для этого запомни третию простую команду:" +
-                            "SAY: ввод текста с клавиатуры");
-                }
-                return Command.GO;
-            case "back":
-                System.out.println("Гном прошел на 1 шаг влево");
-                dwarf.setX(dwarf.getX() - 1);
-                System.out.println(dwarf);
-                if (dwarf.getX() == 5) {
-                    System.out.println("Вы подошли к каменным воротам Мории. \n" +
-                            "Нужно ввести пароль. Для этого запомни третию простую команду:" +
-                            "SAY: ввод текста с клавиатуры");
-                }
-                return Command.BACK;
-            case "say":
-                System.out.println("Введите пароль:");
-                rawCmd = sc.next();
-                dwarf.setSpeech(String.valueOf(dwarf.getSpeech().split(rawCmd)));
-                if ("ДРУГ".equals(rawCmd)) {
-                    System.out.println("ПАРОЛЬ ВЕРНЫЙ!!!ВРАТА ОТКРЫЛИСЬ!!!");
-                    System.out.println("На шум сбежались Орки. Нужно с ними сразиться.\n" +
-                            "Для этого запоминай еще одну команду. \n" +
-                            " ATTACK: нанести удар противнику\n" +
-                            "P.S. НЕ ЗАБЫВАЙ СМОТРЕТЬ НА УРОВЕНЬ НАНЕСЕННОГО УРОНА");
+        if (!isIsActive() == false) {
+            switch (rawCmd) {
+                case "GO":
+                    dwarf.go();
+                    if (dwarf.getX() == 5) {
+                        System.out.println("Вы подошли к каменным воротам Мории. \n" +
+                                "Нужно ввести пароль. Для этого запомни третию простую команду:" +
+                                "SAY: ввод текста с клавиатуры");
 
-                } else {
-                    System.out.println("ПАРОЛЬ НЕ ВЕРНЫЙ!!!ГНОМ УМЕР!!!");
+                    }
+                    return Command.GO;
+                case "BACK":
+                    dwarf.back();
+                    if (dwarf.getX() == 5) {
+                        System.out.println("Вы подошли к каменным воротам Мории. \n" +
+                                "Нужно ввести пароль. Для этого запомни третию простую команду:" +
+                                "SAY: ввод текста с клавиатуры");
+                    }
+                    return Command.BACK;
+                case "SAY":
+                    System.out.println("Введите пароль:");
+                    rawCmd = sc.next().toUpperCase();
+                    dwarf.setSpeech(rawCmd);
+                    dwarf.say();
+                    return Command.SAY;
+                case "EXIT":
+                    System.out.println("Выход из игры");
                     setIsActive(false);
-                }
+                    return Command.EXIT;
+                case "ATTACK":
+                    for (GameObject ogre:ogres) {
+                        while (ogre.getLife() > 0) {
+                            dwarf.attack(ogre);
+                        }
+                        if(ogre.getLife() <= 0){
+                            System.out.println("ОРК УБИТ");
+                        }
+                        if (dwarf.getLife() <= 0 ){
+                            setIsActive(false);
+                            break;
+                        }
 
-                return Command.SAY;
-
-            case "exit":
-                System.out.println("Выход из игры");
-                setIsActive(false);
-                return Command.EXIT;
-            case "ATTACK":
-                for (Ogre ogre: ogres){
-                    while (ogre.getLife()>0){
-                        dwarf.attack(ogre);
                     }
-                    if (dwarf.getLife() <= 0 ){
-                        setIsActive(false);
-                        break;
                     }
-                    if(ogre.getLife() <= 0){
-                        System.out.println("ОРК УБИТ");
-                    }
-                }
-                System.out.println(dwarf.getLife());
-                return Command.ATTACK;
+                    System.out.println(dwarf.getLife());
+                    return Command.ATTACK;
 
+            }
 
-            default:
-                return null;
-
-        }
         return null;
     }
-
 
 }

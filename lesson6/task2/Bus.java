@@ -1,8 +1,10 @@
 package homework.lesson6.task2;
 
-public class Buses extends GroundTransportation {
-    public Buses(String goStr) {
+public class Bus extends GroundTransportation {
+    public Bus(String goStr, String name) {
         super(goStr);
+        setName(name);
+
     }
 
     private int numberOfSeat;
@@ -19,6 +21,6 @@ public class Buses extends GroundTransportation {
 
     @Override
     public String toString() {
-        return "Автобус - 'Икарус'";
+        return "Автобус - ' " + getName() + " '";
     }
 }

@@ -11,7 +11,11 @@ public class Transport {
     private String number; //серийный номер
     private String goStr;
 
-    public Transport(String goStr) {
+    public Transport(String goStr, String name) {
+        this.goStr = goStr;
+        this.name = name;
+    }
+    public Transport (String goStr) {
         this.goStr = goStr;
     }
 
@@ -34,5 +38,11 @@ public class Transport {
         this.goStr = goStr;
     }
 
+    public String getName() {
+        return name;
+    }
 
+    public void setName(String name) {
+        this.name = name;
+    }
 }

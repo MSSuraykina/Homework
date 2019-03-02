@@ -3,17 +3,19 @@ package homework.lesson6.task1.position;
 import homework.lesson6.task1.Employee;
 
 public class DepartmentDirector extends Employee {
-    public DepartmentDirector(Object position, String name, String surname) {
-        super(position, name, surname);
+    public DepartmentDirector(String name, String surname) {
+        super(name, surname);
     }
 
-    public boolean control (Object employees){
+    public boolean control(Object employees) {
         return true;
     }
-    public Object provisionPreparaty(){
+
+    public Object provisionPreparaty() {
         return "";
     }
-    public Object provisionEquipment(){
+
+    public Object provisionEquipment() {
         return "";
     }
 }

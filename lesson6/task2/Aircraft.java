@@ -4,8 +4,9 @@ public class Aircraft extends AirTransport{
     private int numberOfSeat; // Кол-во пассажиров
     private String enginesType; // Тип двигателя
 
-    public Aircraft(String goStr) {
+    public Aircraft(String goStr, String name) {
         super(goStr);
+        setName(name);
     }
 
 
@@ -27,6 +28,6 @@ public class Aircraft extends AirTransport{
 
     @Override
     public String toString() {
-        return "Самолет - 'ТУ - 134'";
+        return "Самолет - '"+ getName()+ " '";
     }
 }

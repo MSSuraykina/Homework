@@ -10,5 +10,4 @@ public class AirTransport extends Transport {
     public void gainAltitude(){ //набрать высоту
     }
 
-
 }

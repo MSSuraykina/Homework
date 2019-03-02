@@ -4,9 +4,9 @@ public class RailwayTransport extends Transport {
 
     public RailwayTransport(String goStr) {
         super(goStr);
-        }
-}
+    }
 
+}
 
 
 

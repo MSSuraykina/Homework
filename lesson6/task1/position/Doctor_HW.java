@@ -4,8 +4,8 @@ import homework.lesson6.task1.Employee;
 
 public class Doctor_HW extends Employee {
 
-    public Doctor_HW(Object position, String name, String surname) {
-        super(position, name, surname);
+    public Doctor_HW(String name, String surname) {
+        super(name, surname);
     }
 
     public String diagnosis(Object patient) {

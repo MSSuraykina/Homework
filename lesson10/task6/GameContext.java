@@ -4,7 +4,7 @@ public class GameContext {
 
     private IGame game;
 
-    private Command cmd;
+    protected Command cmd;
 
     public IGame getGame() {
         return game;
@@ -13,6 +13,7 @@ public class GameContext {
     public void setGame(IGame game) {
         this.game = game;
     }
+
 
     public Command getCmd() {
         return cmd;

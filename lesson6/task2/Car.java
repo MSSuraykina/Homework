@@ -1,8 +1,10 @@
 package homework.lesson6.task2;
 
-public class Cars extends GroundTransportation{
-    public Cars(String goStr) {
+public class Car extends GroundTransportation{
+
+    public Car(String goStr, String name) {
         super(goStr);
+        setName(name);
     }
     private String transmission;
     private String typeOfDrive;
@@ -12,6 +14,6 @@ public class Cars extends GroundTransportation{
 
     @Override
     public String toString() {
-        return "Легковой автомобиль - 'Тайота'";
+        return "Легковой автомобиль - ' " +getName() +" '";
     }
 }

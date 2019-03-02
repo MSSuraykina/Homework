@@ -2,10 +2,11 @@ package homework.lesson6.task2;
 
 //Грузовые автомобили
 
-public class Trucks extends GroundTransportation{
+public class Truck extends GroundTransportation{
 
-    public Trucks(String goStr){
+    public Truck(String goStr, String name){
        super(goStr);
+       setName(name);
     }
 
     private double capacity; // грузоподьемность
@@ -22,6 +23,6 @@ public class Trucks extends GroundTransportation{
 
     @Override
     public String toString() {
-        return "Грузопая машина -  'Камаз'";
+        return "Грузопая машина -  '" + getName() + "'";
     }
 }

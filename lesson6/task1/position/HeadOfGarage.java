@@ -3,8 +3,8 @@ package homework.lesson6.task1.position;
 import homework.lesson6.task1.Employee;
 
 public class HeadOfGarage extends Employee {
-    public HeadOfGarage(Object position, String name, String surname) {
-        super(position, name, surname);
+    public HeadOfGarage(String name, String surname) {
+        super(name, surname);
     }
 
     public boolean control(Object employee){

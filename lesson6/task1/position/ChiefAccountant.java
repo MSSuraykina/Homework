@@ -4,7 +4,7 @@ import homework.lesson6.task1.Employee;
 
 public class ChiefAccountant extends Employee {
     public ChiefAccountant(Object position, String name, String surname) {
-        super(position, name, surname);
+        super(name, surname);
     }
 
     public Object controlFOT(Object fot){

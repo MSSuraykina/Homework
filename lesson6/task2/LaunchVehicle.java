@@ -1,11 +1,12 @@
 package homework.lesson6.task2;
 // Ракетоносители
 
-public class LaunchVehicles extends SpaceTransport{
+public class LaunchVehicle extends SpaceTransport{
     private  String type; // пилотируемые или грузовые
 
-    public LaunchVehicles(String goStr) {
+    public LaunchVehicle(String goStr, String name) {
         super();
+        setName(name);
     }
 
     public void stageSeparation(){
@@ -17,7 +18,6 @@ public class LaunchVehicles extends SpaceTransport{
 
     @Override
     public String toString() {
-        return "PH - ' Протон - М'\n"
-                +"РН - ' Союз - 2.1a'";
+        return "PH - ' "+ getName() +" '";
     }
 }

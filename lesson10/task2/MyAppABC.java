@@ -1,44 +1,12 @@
 package homework.lesson10.task2;
 
-import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 
 public class MyAppABC {
     public static void main(String[] args) {
-        TreeMap<Character, Integer> alphabet = new TreeMap<>();
-        alphabet.put('а', 0);
-        alphabet.put('б', 0);
-        alphabet.put('в', 0);
-        alphabet.put('г', 0);
-        alphabet.put('д', 0);
-        alphabet.put('е', 0);
-        alphabet.put('ж', 0);
-        alphabet.put('з', 0);
-        alphabet.put('и', 0);
-        alphabet.put('й', 0);
-        alphabet.put('к', 0);
-        alphabet.put('л', 0);
-        alphabet.put('м', 0);
-        alphabet.put('н', 0);
-        alphabet.put('о', 0);
-        alphabet.put('п', 0);
-        alphabet.put('р', 0);
-        alphabet.put('с', 0);
-        alphabet.put('т', 0);
-        alphabet.put('у', 0);
-        alphabet.put('ф', 0);
-        alphabet.put('х', 0);
-        alphabet.put('ц', 0);
-        alphabet.put('ч', 0);
-        alphabet.put('ш', 0);
-        alphabet.put('щ', 0);
-        alphabet.put('ь', 0);
-        alphabet.put('ы', 0);
-        alphabet.put('э', 0);
-        alphabet.put('ю', 0);
-        alphabet.put('я', 0);
+        Map<Character, Integer> alphabet = new TreeMap<>();
 
         String test = "Из доклада Ю. А. Гагарина:\n" +
                 "Минутная готовность — и старт. Со старта... слышно, когда разводят фермы,\n" +
@@ -83,13 +51,18 @@ public class MyAppABC {
                 "затем постепенно темнеет, фиолетовый оттенок приобретает и переходит в\n" +
                 "чёрный цвет. В это время вёл устойчивую, хорошую связь с Колпашевым —\n" +
                 "Зарей - 2.";
+        for (int i = 0; i < test.length(); i++) {
+            Character k = test.toLowerCase().charAt(i);
+            alphabet.put(k,0);
+        }
 
 
         Set<Map.Entry<Character, Integer>> set = alphabet.entrySet();
         for (Map.Entry<Character, Integer> me : set) {
             for (int i = 0; i < test.length(); i++) {
+                String k = test.toLowerCase().substring(i,++i);
                 if (me.getKey().equals(test.toLowerCase().charAt(i))){
-                    me.setValue(me.getValue() + 1);//System.out.println(me.getKey()+" : " + me.getValue());
+                    me.setValue(me.getValue() + 1);
                 }
             }
         }

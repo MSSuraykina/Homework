@@ -3,8 +3,8 @@ package homework.lesson6.task1.position;
 import homework.lesson6.task1.Employee;
 
 public class Typist extends Employee {
-    public Typist(Object position, String name, String surname) {
-        super(position, name, surname);
+    public Typist(String name, String surname) {
+        super(name, surname);
     }
 
     public String typing(String text) {
