@@ -51,25 +51,15 @@ public class MyAppABC {
                 "затем постепенно темнеет, фиолетовый оттенок приобретает и переходит в\n" +
                 "чёрный цвет. В это время вёл устойчивую, хорошую связь с Колпашевым —\n" +
                 "Зарей - 2.";
+
         for (int i = 0; i < test.length(); i++) {
             Character k = test.toLowerCase().charAt(i);
-            alphabet.put(k,0);
+            alphabet.put(k, alphabet.containsKey(k) ? alphabet.get(k)+1 : 1);
         }
-
-
-        Set<Map.Entry<Character, Integer>> set = alphabet.entrySet();
-        for (Map.Entry<Character, Integer> me : set) {
-            for (int i = 0; i < test.length(); i++) {
-                String k = test.toLowerCase().substring(i,++i);
-                if (me.getKey().equals(test.toLowerCase().charAt(i))){
-                    me.setValue(me.getValue() + 1);
-                }
-            }
-        }
-
         Set<Map.Entry<Character, Integer>> set_1 = alphabet.entrySet();
         for (Map.Entry<Character, Integer> me : set_1) {
             System.out.println(me.getKey() + " : " + me.getValue());
         }
+
     }
 }
